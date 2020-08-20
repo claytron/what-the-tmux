@@ -85,6 +85,33 @@ class: middle, center
 Let's take a tour of the basic functionality of tmux
 
 ---
+class: middle, left
+
+# Key Bindings
+
+The `prefix` in tmux is `ctrl + b`
+
+To avoid a conflict with screen's `ctrl + a`
+
+Remap it in your `tmux.conf` if needed
+
+```tmux
+# Change the prefix and release ctrl + b
+set -g prefix C-a
+unbind C-b
+
+# Ability to send ctrl + a to applications still
+bind C-a send-prefix
+
+```
+
+???
+- Note on the prefix before we get started
+- Remap it to keep old muscle memory
+- Or to avoid having to double tap to use `ctrl + b` normally (scroll back)
+- More about key bindings later
+
+---
 class: middle, center
 
 # Starting a new session
@@ -293,8 +320,6 @@ Go back to our session list and see everything we've created so far
 ---
 class: middle, center
 
-# Session List
-
 ![:scale 80%](images/navigate02.png)
 
 ???
@@ -304,42 +329,30 @@ class: middle, center
 ---
 class: middle, center
 
-# Session List
-
 ![:scale 80%](images/navigate03.png)
 
 ---
 class: middle, center
-
-# Session List
 
 ![:scale 80%](images/navigate04.png)
 
 ---
 class: middle, center
 
-# Session List
-
 ![:scale 80%](images/navigate05.png)
 
 ---
 class: middle, center
-
-# Session List
 
 ![:scale 80%](images/navigate06.png)
 
 ---
 class: middle, center
 
-# Session List
-
 ![:scale 80%](images/navigate07.png)
 
 ---
 class: middle, center
-
-# Session List
 
 ![:scale 80%](images/navigate08.png)
 
@@ -350,14 +363,174 @@ class: middle, center
 ---
 class: middle, center
 
-# Session List
+# Pane Selected
 
 ![:scale 80%](images/navigate09.png)
 
 ???
-- Now back to the first split in the second window
-- session 1 window 1 pane 1
+- Now back to the second session's first window, first split
+- session 1 window 0 pane 1
 - All zero based of course
+
+---
+class: middle, center
+
+# Naming
+
+Sessions and Windows can have names
+
+???
+- Our previous examples are all using numbered indexes
+- Let's see how naming things can make that clearer
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_default.png)
+
+???
+Let's say we have this in our first session
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_default.png)
+
+???
+And this in the second
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_name.png)
+
+`prefix + $`
+
+???
+Let's name this one work
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_named.png)
+
+???
+Now it is starting to make more sense
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_pane1_name.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_pane1_named.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_pane2_name.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_two_pane2_named.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_default.png)
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_name.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_named.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_pane_name.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_pane_named.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_list_one.png)
+
+???
+TODO
+
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_list_two.png)
+
+???
+TODO
 
 ---
 class: middle, center
