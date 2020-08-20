@@ -855,6 +855,7 @@ class: top, left
 
 - [My Dotfiles][dotfiles-claytron]
 - [Awesome tmux](https://github.com/rothgar/awesome-tmux)
+- [wemux][wemux]
 - [Teamocil][teamocil]
 - [Tmuxinator][tmuxinator]
 
@@ -880,6 +881,7 @@ class: middle, center
 [dotfiles-indy]: https://meetingplace.io/Dotfiles-Indy
 [twitter-claytron]: https://twitter.com/claytron
 [dotfiles-claytron]: https://github.com/claytron/dotfiles
+[wemux]: https://github.com/zolrath/wemux
 [teamocil]: https://github.com/remi/teamocil
 [tmuxinator]: https://github.com/tmuxinator/tmuxinator
 [tmux-config-management]: https://github.com/rothgar/awesome-tmux#tools-and-session-management
