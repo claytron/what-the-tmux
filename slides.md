@@ -345,7 +345,7 @@ class: middle, center
 
 ???
 - Now you can use the index on the side to go to a specific pane.
-- Let's select `8`
+- Let's select `5`
 
 ---
 class: middle, center
@@ -355,7 +355,8 @@ class: middle, center
 ![:scale 80%](images/navigate09.png)
 
 ???
-- Now back to session 1 window 1 pane 1
+- Now back to the first split in the second window
+- session 1 window 1 pane 1
 - All zero based of course
 
 ---
