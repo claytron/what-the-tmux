@@ -255,7 +255,7 @@ class: middle, center
 `prefix + %`
 
 ???
-TODO
+Split the window in two vertically
 
 ---
 class: middle, center
@@ -267,7 +267,7 @@ class: middle, center
 `prefix + "`
 
 ???
-TODO
+Split the current pane in two horizontally
 
 ---
 class: middle, center
@@ -279,7 +279,7 @@ class: middle, center
 `prefix + s`
 
 ???
-TODO
+Now we can see all the panes via the session list
 
 ---
 class: middle, center
@@ -291,7 +291,7 @@ class: middle, center
 `prefix + c`
 
 ???
-TODO
+Create a second window in this session
 
 ---
 class: middle, center
@@ -303,7 +303,7 @@ class: middle, center
 `prefix + "`
 
 ???
-TODO
+And another split just for fun
 
 ---
 class: middle, center
@@ -366,6 +366,8 @@ class: middle, center
 # Pane Selected
 
 ![:scale 80%](images/navigate09.png)
+
+`5`
 
 ???
 - Now back to the second session's first window, first split
@@ -430,40 +432,45 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_pane1_name.png)
+![:scale 80%](images/naming_session_two_window1_name.png)
+
+`prefix + ,`
 
 ???
-TODO
+- We can also rename the windows
+- This will stop the current process from renaming them constantly
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_pane1_named.png)
+![:scale 80%](images/naming_session_two_window1_named.png)
 
 ???
-TODO
+Starting to look better
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_pane2_name.png)
+![:scale 80%](images/naming_session_two_window2_name.png)
+
+`prefix + ,`
 
 ???
-TODO
+Rinse and repeat
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_pane2_named.png)
+![:scale 80%](images/naming_session_two_window2_named.png)
 
 ???
-TODO
+Looking tidy now
 
 ---
 class: middle, center
@@ -472,6 +479,9 @@ class: middle, center
 
 ![:scale 80%](images/naming_session_one_default.png)
 
+???
+Let's go back to the first session we created
+
 ---
 class: middle, center
 
@@ -479,8 +489,10 @@ class: middle, center
 
 ![:scale 80%](images/naming_session_one_name.png)
 
+`prefix + $`
+
 ???
-TODO
+Same process as before for this window
 
 ---
 class: middle, center
@@ -489,28 +501,27 @@ class: middle, center
 
 ![:scale 80%](images/naming_session_one_named.png)
 
+---
+class: middle, center
+
+# Naming
+
+![:scale 80%](images/naming_session_one_window_name.png)
+
+`prefix + ,`
+
 ???
-TODO
+And again for the window
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_pane_name.png)
+![:scale 80%](images/naming_session_one_window_named.png)
 
 ???
-TODO
-
----
-class: middle, center
-
-# Naming
-
-![:scale 80%](images/naming_session_one_pane_named.png)
-
-???
-TODO
+Now everything has a proper name
 
 ---
 class: middle, center
@@ -519,8 +530,10 @@ class: middle, center
 
 ![:scale 80%](images/naming_session_list_one.png)
 
+`prefix + s`
+
 ???
-TODO
+Let's look at the list again for each session
 
 ---
 class: middle, center
@@ -530,7 +543,7 @@ class: middle, center
 ![:scale 80%](images/naming_session_list_two.png)
 
 ???
-TODO
+Much more informative now
 
 ---
 class: middle, center
