@@ -651,6 +651,19 @@ Wemux? TODO?
 - Could be good for two command line junkies though
 
 ---
+class: middle, center
+
+# Alternatives
+
+Tiling Window Mangers
+
+Builtin to terminal (e.g. iTerm2, Kitty, etc)
+
+???
+- Some of these features can be done with other programs
+- I like the portability of tmux
+
+---
 class: top, left
 
 # Links
