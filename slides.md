@@ -71,8 +71,10 @@ class: middle, left
 </table>
 
 ???
-- windows are independent entities which may be attached simultaneously to multiple sessions and viewed from multiple clients (terminals), as well as moved freely between sessions within the same tmux server
-- Vi / Emacs keybindings available out of the box, and support for mouse and scrolling also.
+- Windows are independent entities which may be attached simultaneously to multiple sessions and viewed from multiple clients (terminals)
+- Windows can be moved freely between sessions within the same tmux server
+- Vi / Emacs keybindings available out of the box for copy mode
+- Support for mouse and scrolling
 - A cleaner, modern, easily extended, BSD-licensed codebase.
 - If you are stuck on some old mainframe, you could still use `screen`
 
@@ -548,46 +550,101 @@ Much more informative now
 ---
 class: middle, center
 
-# Pane Movement
-
-TODO
-
----
-class: middle, center
-
 # Key Bindings
+
+Vi and Emacs layouts for copy mode
 
 Defaults are vague and hard to remember
 
-Vi and Emacs modes
+Remap things to suit your style (read the Brian Hogan book)
 
 ???
-Some notes...
+- Make it yours by remapping things
+- Config changes have historically broken between minor versions, beware
+- Maybe they'll stop doing that?
 
 ---
 class: middle, center
 
-# Status line
+# Pane Movement
 
-TODO: screenshots / explanations?
+By default movement between panes is
+
+`prefix + <arrows>`
+
+???
+- For example...
+- Makes sense, unless you use vim
+
+---
+class: middle, left
+
+# Pane Movement
+
+Set up vi style movement
+
+```tmux
+bind C-h select-pane -L
+bind C-j select-pane -D
+bind C-k select-pane -U
+bind C-l select-pane -R
+```
+
+???
+Allows to hold `ctrl` and use `hjkl`
+
+---
+class: middle, left
+
+# Pane Resizing
+
+```tmux
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+unbind L
+bind -r L resize-pane -R 5
+```
+
+???
+Works much better for my brain
+
+---
+class: middle, left
+
+# Splitting
+
+```tmux
+unbind '"'
+unbind %
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+```
+
+???
+Another thing that works better for my brain
 
 ---
 class: middle, center
 
 # Modality
 
-TODO: maybe earlier in the talk?
+Like vi, tmux has different modes
 
 ???
 - Normal mode sends keys to the terminal
 - Using the prefix allows for commands to be run
+- Let's talk about the other modes available
 
 ---
 class: middle, center
 
 # Command Mode
 
-TODO: screenshots / explanations?
+![:scale 80%](images/command_mode.png)
+
+`prefix + :`
 
 ???
 - Manipulate everything from here
@@ -596,9 +653,21 @@ TODO: screenshots / explanations?
 ---
 class: middle, center
 
+# Command Mode
+
+![:scale 80%](images/command_mode_result.png)
+
+???
+The output in a PAGER
+
+---
+class: middle, center
+
 # Copy Mode
 
-TODO
+![:scale 80%](images/copy_mode.png)
+
+`prefix + [`
 
 ???
 - Probably my favorite feature
@@ -608,24 +677,136 @@ TODO
 ---
 class: middle, center
 
+# Copy Mode
+
+![:scale 80%](images/copy_mode_search.png)
+
+`?`
+
+---
+class: middle, center
+
+# Copy Mode
+
+![:scale 80%](images/copy_mode_search_results.png)
+
+---
+class: middle, center
+
+# Copy Mode
+
+![:scale 80%](images/copy_mode_select.png)
+
+---
+class: middle, center
+
+# Copy Mode
+
+![:scale 80%](images/copy_mode_list_buffers.png)
+
+---
+class: middle, center
+
+# Copy Mode
+
+![:scale 80%](images/copy_mode_buffers.png)
+
+---
+class: middle, left
+
+# Enhance Copy Mode
+
+```tmux
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe "pbcopy" \; display-message 'Text copied to clipboard!'
+bind-key -T copy-mode-vi y send-keys -X copy-pipe "pbcopy" \; display-message 'Text copied to clipboard!'
+
+# vi-ish bindings
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi V send-keys -X select-line
+bind -T copy-mode-vi C-v send-keys -X rectangle-toggle \; send-keys -X begin-selection
+bind -T copy-mode-vi Escape send-keys -X cancel
+```
+
+???
+- Normally kicked out of where you were
+- This retains position
+- Also some vi style keys to make things easier
+
+---
+class: middle, left
+
 # Mouse Mode
 
-TODO
+```tmux
+# turn on mouse mode
+setw -g mouse on
+
+# Don't mark the window on right click
+unbind -T root MouseDown3Pane
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
+
+# Default is to copy and cancel selection, this copys to the clipboard and leaves the selection
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "pbcopy" \; display-message 'text copied to clipboard!'
+
+```
 
 ???
 - The mouse is NOT evil!
 - Modify it to make it MUCH more useful
 
 ---
+class: middle, left
+
+# More Config Examples
+
+```tmux
+# Set the scrollback
+set -g history-limit 200000
+
+# Set the delay so that it doesn't interfere with applications like vim
+set -sg escape-time 0
+
+# Make window and pane indexes start with 1
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Create a new session
+bind S new-session
+```
+
+---
+class: middle, center
+
+# Community
+
+Plugins
+
+Themes
+
+Status line helpers
+
+???
+- The community has created a lot of things that make tmux even better
+- See the awesome tmux list for more info
+
+---
+class: middle, center
+
+# Status line
+
+![:scale 80%](images/statusline.png)
+
+???
+- TMUXLine, one such example of a plugin
+- Making my status line easy to manage via vim
+
+---
 class: middle, center
 
 # Managing Environments
 
-[Teamocil][teamocil]
-
-[Tmuxinator][tmuxinator]
-
-[And many more...][tmux-config-management]
+Teamocil, Tmuxinator, [And many more...][tmux-config-management]
 
 ???
 - Lots of options
@@ -639,12 +820,16 @@ class: middle, center
 
 Language libraries like python, ruby, etc.
 
+???
+- Interact with tmux via your own program
+- Endless possibilities for integration into things
+
 ---
 class: middle, center
 
 # Pair Programming
 
-Wemux? TODO?
+Using tools like wemux to remote pair
 
 ???
 - Maybe not quite as easy as the VSCode pairing
@@ -670,9 +855,26 @@ class: top, left
 
 - [My Dotfiles][dotfiles-claytron]
 - [Awesome tmux](https://github.com/rothgar/awesome-tmux)
-- Brian Hogan book TODO
-- Tao of tmux book TODO
-- TODO
+- [Teamocil][teamocil]
+- [Tmuxinator][tmuxinator]
+
+## Books
+
+- Brian Hogan's [tmux 2 Productive Mouse-Free Development][mouse-free]
+- [Tao of tmux][tao-of-tmux] free online book
+
+These books are both based on tmux 2, not the latest, but still very informative
+
+???
+- My dotfiles to see how I've set things up
+- Awesome tmux list has a lot of great links
+- The Brian Hogan book is what sold me on tmux
+- Haven't read the Tao of tmux, but looks good
+
+---
+class: middle, center
+
+# FIN
 
 [/ Links ---------------------------------------------------------------- /]: #
 [dotfiles-indy]: https://meetingplace.io/Dotfiles-Indy
@@ -681,4 +883,6 @@ class: top, left
 [teamocil]: https://github.com/remi/teamocil
 [tmuxinator]: https://github.com/tmuxinator/tmuxinator
 [tmux-config-management]: https://github.com/rothgar/awesome-tmux#tools-and-session-management
+[mouse-free]: https://pragprog.com/titles/bhtmux2/tmux-2/
+[tao-of-tmux]: https://leanpub.com/the-tao-of-tmux
 [/ ---------------------------------------------------------------------- /]: #
