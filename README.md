@@ -12,5 +12,10 @@ Slides are available via [GitHub Pages in this repo][gh-pages]
 
 PDF available [in this repo][slides-pdf]
 
+Presentation made with [remark][remark].
+PDF and slide image generated with [DeckTape][decktape].
+
 [gh-pages]: https://claytron.github.io/what-the-tmux/remark.html
 [slides-pdf]: slides.pdf
+[remark]: https://github.com/gnab/remark
+[decktape]: https://github.com/astefanutti/decktape
