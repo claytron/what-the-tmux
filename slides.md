@@ -840,7 +840,7 @@ class: middle, center
 
 # Alternatives
 
-Tiling Window Mangers
+Tiling Window Managers
 
 Builtin to terminal (e.g. iTerm2, Kitty, etc)
 

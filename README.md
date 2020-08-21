@@ -8,10 +8,9 @@ We'll cover the usage basics and some slightly more advanced features that make 
 
 ## More Info
 
-Slides are available on [slideshare][slides-slideshare] and [speakerdeck][slides-speakerdeck]
+Slides are available via [GitHub Pages in this repo][gh-pages]
 
 PDF available [in this repo][slides-pdf]
 
-[slides-slideshare]: #
-[slides-speakerdeck]: #
-[slides-pdf]: #
+[gh-pages]: https://claytron.github.io/what-the-tmux/remark.html
+[slides-pdf]: slides.pdf
