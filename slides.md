@@ -28,11 +28,13 @@ class: middle, center
 
 tmux == Terminal MUltipleXer
 
+Many terminals within a terminal
+
+A way to save your work for later or organize things locally
+
 A better `screen`
 
 ???
-- Many terminals within a terminal
-- A way to save your work for later or organize things locally
 - A new take on the idea
 - You NEED this in your life for sure
 
@@ -83,13 +85,14 @@ class: middle, center
 
 # How it works?
 
-???
 Let's take a tour of the basic functionality of tmux
 
 ---
 class: middle, left
 
 # Key Bindings
+
+A note on the `prefix` before we get started
 
 The `prefix` in tmux is `ctrl + b`
 
@@ -108,7 +111,6 @@ bind C-a send-prefix
 ```
 
 ???
-- Note on the prefix before we get started
 - Remap it to keep old muscle memory
 - Or to avoid having to double tap to use `ctrl + b` normally (scroll back)
 - More about key bindings later
@@ -118,169 +120,167 @@ class: middle, center
 
 # Starting a new session
 
-![:scale 80%](images/session_start.png)
+![:scale 60%](images/session_start.png)
 
-???
-- The foundation of `tmux` is the session
-- Every time you invoke `tmux` you are starting a new session
+The foundation of `tmux` is the session
 
----
-class: middle, center
-
-# Sessions
-
-![:scale 80%](images/session_started.png)
-
-???
-- A session is started with a single window.
-- A status line appears giving you info about the session.
-- Another difference from default screen, automatic status line.
+Every time you invoke `tmux` you are starting a new session within that server
 
 ---
 class: middle, center
 
 # Sessions
 
-![:scale 80%](images/session_list_one.png)
+![:scale 60%](images/session_started.png)
+
+A session is started with a single window
+
+A status line appears giving you info about the session
+
+Another difference from default screen, automatic status line
+
+---
+class: middle, center
+
+# Sessions
+
+![:scale 60%](images/session_list_one.png)
 
 `prefix + s`
 
-???
-Now we can see we have one session running one window.
+Now we can see we have one session running one window
 
 ---
 class: middle, center
 
 # Detaching
 
-![:scale 80%](images/session_ended.png)
+![:scale 60%](images/session_ended.png)
 
 `prefix + d`
 
-???
-Now we are back to our original terminal, no longer in tmux.
+Now we are back to our original terminal, no longer in tmux
 
 ---
 class: middle, center
 
 # Starting another session
 
-![:scale 80%](images/session_start.png)
+![:scale 60%](images/session_start.png)
 
-???
-Running tmux again starts a completely new session.
-
----
-class: middle, center
-
-# Sessions
-
-![:scale 80%](images/session_started_two.png)
-
-???
-We can see the session number is incremented in the status line.
+Running `tmux` again starts a completely new session on that server
 
 ---
 class: middle, center
 
 # Sessions
 
-![:scale 80%](images/session_list_two.png)
+![:scale 60%](images/session_started_two.png)
+
+We can see the session number is incremented in the status line
+
+---
+class: middle, center
+
+# Sessions
+
+![:scale 60%](images/session_list_two.png)
 
 `prefix + s`
 
-???
-- Now we can see we have two sessions running.
-- This view also allows keyboard navigation, so you can see more detailed info.
+Now we can see we have two sessions running
+
+This view also allows keyboard navigation, so you can see more detailed info
 
 ---
 class: middle, center
 
 # Attaching
 
-![:scale 80%](images/session_ended.png)
+![:scale 60%](images/session_ended.png)
 
-???
-- Now let's go back to our non tmux terminal.
-- How do we get back to the original session?
+Now let's go back to our non tmux terminal
+
+How do we get back to the original session?
 
 ---
 class: middle, center
 
 # Attaching
 
-![:scale 80%](images/attach.png)
+![:scale 60%](images/attach.png)
+
+You can see a list of sessions with the `list-sessions` command (or `ls` for short)
+
+You can attach to a specific session using the `attach` command
+
+The `-t` is the `target`
 
 ???
 - Running `tmux` each time creates a new session.
-- You can see a list of sessions with the `list-sessions` command (or `ls` for short)
-- You can attach to a specific session using the `attach` command.
-- The `-t` is the `target`
 
 ---
 class: middle, center
 
 # Attaching
 
-![:scale 80%](images/session_started.png)
+![:scale 60%](images/session_started.png)
 
-???
-Now we are back to the original session.
-
----
-class: middle, center
-
-# Windows and Panes
-
-???
-- The next most fundamental thing about tmux.
-- Windows are a collection of panes.
-- Each pane is a horizontal or vertical split of the window.
+Now we are back to the original session
 
 ---
 class: middle, center
 
 # Windows and Panes
 
-![:scale 80%](images/session_started_two.png)
+The next most fundamental thing about tmux
 
-???
-Starting out with one window in a new session.
+Windows are a collection of panes
+
+Each pane is a horizontal or vertical split of the window
 
 ---
 class: middle, center
 
-# Split Vertically
+# Windows and Panes
 
-![:scale 80%](images/pane_split_vertical.png)
+![:scale 60%](images/session_started_two.png)
 
-`prefix + %`
-
-???
-Split the window in two vertically
+Starting out with one window in a new session
 
 ---
 class: middle, center
 
 # Split Horizontally
 
-![:scale 80%](images/pane_split_horizontal.png)
+![:scale 60%](images/pane_split_vertical.png)
+
+`prefix + %`
+
+???
+Split the window in two horizontally
+
+---
+class: middle, center
+
+# Split Vertically
+
+![:scale 60%](images/pane_split_horizontal.png)
 
 `prefix + "`
 
 ???
-Split the current pane in two horizontally
+Split the current pane in two vertically
 
 ---
 class: middle, center
 
 # Panes
 
-![:scale 80%](images/pane_list.png)
+![:scale 60%](images/pane_list.png)
 
 `prefix + s`
 
-???
 Now we can see all the panes via the session list
 
 ---
@@ -288,23 +288,23 @@ class: middle, center
 
 # New Window
 
-![:scale 80%](images/window_new.png)
+![:scale 60%](images/window_new.png)
 
 `prefix + c`
 
-???
 Create a second window in this session
+
+You can see the new window in the status line
 
 ---
 class: middle, center
 
 # New Window
 
-![:scale 80%](images/window_new_split.png)
+![:scale 60%](images/window_new_split.png)
 
 `prefix + "`
 
-???
 And another split just for fun
 
 ---
@@ -312,21 +312,20 @@ class: middle, center
 
 # Session List
 
-![:scale 80%](images/navigate01.png)
+![:scale 60%](images/navigate01.png)
 
 `prefix + s`
 
-???
 Go back to our session list and see everything we've created so far
 
 ---
 class: middle, center
 
-![:scale 80%](images/navigate02.png)
+![:scale 60%](images/navigate02.png)
 
-???
-- Using the keyboard to navigate.
-- Hitting left and right to open / close the tree.
+Using the keyboard to navigate
+
+Hitting left and right to open / close the tree
 
 ---
 class: middle, center
@@ -358,23 +357,22 @@ class: middle, center
 
 ![:scale 80%](images/navigate08.png)
 
-???
-- Now you can use the index on the side to go to a specific pane.
-- Let's select `5`
+Now you can use the index on the side to go to a specific pane
+
+Let's select `5`
 
 ---
 class: middle, center
 
 # Pane Selected
 
-![:scale 80%](images/navigate09.png)
+![:scale 60%](images/navigate09.png)
 
 `5`
 
-???
-- Now back to the second session's first window, first split
-- session 1 window 0 pane 1
-- All zero based of course
+Now back to the second session's first window, first split
+
+Session 1 window 0 pane 1, all zero based of course
 
 ---
 class: middle, center
@@ -383,18 +381,17 @@ class: middle, center
 
 Sessions and Windows can have names
 
-???
-- Our previous examples are all using numbered indexes
-- Let's see how naming things can make that clearer
+Our previous examples are all using numbered indexes
+
+Let's see how naming things can make that clearer
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_default.png)
+![:scale 60%](images/naming_session_one_default.png)
 
-???
 Let's say we have this in our first session
 
 ---
@@ -402,9 +399,8 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_default.png)
+![:scale 60%](images/naming_session_two_default.png)
 
-???
 And this in the second
 
 ---
@@ -412,11 +408,10 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_name.png)
+![:scale 60%](images/naming_session_two_name.png)
 
 `prefix + $`
 
-???
 Let's name this one work
 
 ---
@@ -424,9 +419,8 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_named.png)
+![:scale 60%](images/naming_session_two_named.png)
 
-???
 Now it is starting to make more sense
 
 ---
@@ -434,22 +428,21 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_window1_name.png)
+![:scale 60%](images/naming_session_two_window1_name.png)
 
 `prefix + ,`
 
-???
-- We can also rename the windows
-- This will stop the current process from renaming them constantly
+We can also rename the windows
+
+This will stop the current process from renaming them constantly
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_window1_named.png)
+![:scale 60%](images/naming_session_two_window1_named.png)
 
-???
 Starting to look better
 
 ---
@@ -457,11 +450,10 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_window2_name.png)
+![:scale 60%](images/naming_session_two_window2_name.png)
 
 `prefix + ,`
 
-???
 Rinse and repeat
 
 ---
@@ -469,9 +461,8 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_two_window2_named.png)
+![:scale 60%](images/naming_session_two_window2_named.png)
 
-???
 Looking tidy now
 
 ---
@@ -479,9 +470,8 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_default.png)
+![:scale 60%](images/naming_session_one_default.png)
 
-???
 Let's go back to the first session we created
 
 ---
@@ -489,11 +479,10 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_name.png)
+![:scale 60%](images/naming_session_one_name.png)
 
 `prefix + $`
 
-???
 Same process as before for this window
 
 ---
@@ -501,18 +490,17 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_named.png)
+![:scale 60%](images/naming_session_one_named.png)
 
 ---
 class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_window_name.png)
+![:scale 60%](images/naming_session_one_window_name.png)
 
 `prefix + ,`
 
-???
 And again for the window
 
 ---
@@ -520,9 +508,8 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_one_window_named.png)
+![:scale 60%](images/naming_session_one_window_named.png)
 
-???
 Now everything has a proper name
 
 ---
@@ -530,11 +517,10 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_list_one.png)
+![:scale 60%](images/naming_session_list_one.png)
 
 `prefix + s`
 
-???
 Let's look at the list again for each session
 
 ---
@@ -542,9 +528,8 @@ class: middle, center
 
 # Naming
 
-![:scale 80%](images/naming_session_list_two.png)
+![:scale 60%](images/naming_session_list_two.png)
 
-???
 Much more informative now
 
 ---
@@ -590,7 +575,6 @@ bind C-k select-pane -U
 bind C-l select-pane -R
 ```
 
-???
 Allows to hold `ctrl` and use `hjkl`
 
 ---
@@ -606,8 +590,7 @@ unbind L
 bind -r L resize-pane -R 5
 ```
 
-???
-Works much better for my brain
+Works much better for my vim brain
 
 ---
 class: middle, left
@@ -622,7 +605,6 @@ bind - split-window -v -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
 ```
 
-???
 Another thing that works better for my brain
 
 ---
@@ -642,74 +624,80 @@ class: middle, center
 
 # Command Mode
 
-![:scale 80%](images/command_mode.png)
+![:scale 60%](images/command_mode.png)
 
 `prefix + :`
 
-???
-- Manipulate everything from here
-- Not often used, but handy for certain one off tasks
+Manipulate everything from here
+
+Not often used, but handy for certain one off tasks
 
 ---
 class: middle, center
 
 # Command Mode
 
-![:scale 80%](images/command_mode_result.png)
+![:scale 60%](images/command_mode_result.png)
 
-???
-The output in a PAGER
+The output lands you in copy mode
 
 ---
 class: middle, center
 
 # Copy Mode
 
-![:scale 80%](images/copy_mode.png)
+![:scale 60%](images/copy_mode.png)
 
 `prefix + [`
 
-???
-- Probably my favorite feature
-- I still use tmux in a tiling window manager because of this
-- Modify the defaults to make it less aggravating
+Probably my favorite feature, I still use tmux in a tiling window manager because of this
+
+Modify the defaults to make it less aggravating
 
 ---
 class: middle, center
 
 # Copy Mode
 
-![:scale 80%](images/copy_mode_search.png)
+![:scale 60%](images/copy_mode_search.png)
 
 `?`
 
----
-class: middle, center
-
-# Copy Mode
-
-![:scale 80%](images/copy_mode_search_results.png)
+Search the scrollback
 
 ---
 class: middle, center
 
 # Copy Mode
 
-![:scale 80%](images/copy_mode_select.png)
+![:scale 60%](images/copy_mode_search_results.png)
+
+Navigate the results with vi or emacs keybindings
 
 ---
 class: middle, center
 
 # Copy Mode
 
-![:scale 80%](images/copy_mode_list_buffers.png)
+![:scale 60%](images/copy_mode_select.png)
+
+`spacebar` to start highlighting, `enter` to add it to the copy buffer
 
 ---
 class: middle, center
 
 # Copy Mode
 
-![:scale 80%](images/copy_mode_buffers.png)
+![:scale 60%](images/copy_mode_list_buffers.png)
+
+Use command mode to show the copied text
+
+---
+class: middle, center
+
+# Copy Mode
+
+![:scale 60%](images/copy_mode_buffers.png)
 
 ---
 class: middle, left
@@ -727,10 +715,9 @@ bind -T copy-mode-vi C-v send-keys -X rectangle-toggle \; send-keys -X begin-sel
 bind -T copy-mode-vi Escape send-keys -X cancel
 ```
 
-???
-- Normally kicked out of where you were
-- This retains position
-- Also some vi style keys to make things easier
+Normally kicked out of copy mode, these help avoid that and retain position
+
+Also, some vi style keys to make things easier
 
 ---
 class: middle, left
@@ -751,9 +738,9 @@ bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "pbcopy" \; di
 
 ```
 
-???
-- The mouse is NOT evil!
-- Modify it to make it MUCH more useful
+The mouse is NOT evil!
+
+Modify it to make it MUCH more useful
 
 ---
 class: middle, left
@@ -780,26 +767,24 @@ class: middle, center
 
 # Community
 
+The community has created a lot of things that make tmux even better
+
+See the awesome tmux list for more info on these things:
+
 Plugins
 
 Themes
 
 Status line helpers
 
-???
-- The community has created a lot of things that make tmux even better
-- See the awesome tmux list for more info
-
 ---
 class: middle, center
 
 # Status line
 
-![:scale 80%](images/statusline.png)
+![:scale 60%](images/statusline.png)
 
-???
-- TMUXLine, one such example of a plugin
-- Making my status line easy to manage via vim
+tmuxline making my status line easy to manage via vim and airline
 
 ---
 class: middle, center
@@ -808,10 +793,9 @@ class: middle, center
 
 Teamocil, Tmuxinator, [And many more...][tmux-config-management]
 
-???
-- Lots of options
-- Used Teamocil for years (because Arrested Development)
-- Very helpful for repeated set ups locally or remote
+Used Teamocil for years (because of the Arrested Development joke)
+
+Very helpful for repeated set ups locally or remote
 
 ---
 class: middle, center
@@ -820,9 +804,9 @@ class: middle, center
 
 Language libraries like python, ruby, etc.
 
-???
-- Interact with tmux via your own program
-- Endless possibilities for integration into things
+Interact with tmux via your own program
+
+Endless possibilities for integration into things
 
 ---
 class: middle, center
@@ -831,9 +815,9 @@ class: middle, center
 
 Using tools like wemux to remote pair
 
-???
-- Maybe not quite as easy as the VSCode pairing
-- Could be good for two command line junkies though
+Maybe not quite as easy as the VSCode pairing
+
+Could be good for two command line junkies though
 
 ---
 class: middle, center
